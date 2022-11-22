@@ -5,7 +5,7 @@ r = RethinkDB()
 print("Conectandose a rethinkdb...")
 
 try:
-	r.connect( "localhost", 28015).repl()
+	r.connect( "server-rethinkdb", 28015).repl()
 except:
 	print("No se ha podido conectar")
 	quit()

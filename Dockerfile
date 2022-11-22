@@ -1,6 +1,7 @@
-FROM alpine:latest
-RUN apk update
+FROM python:latest
 
 COPY main.py /
 
-CMD python3 main.py
+RUN python -m pip install rethinkdb
+
+CMD ["python", "main.py"]

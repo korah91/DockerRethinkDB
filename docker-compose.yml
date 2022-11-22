@@ -1,0 +1,6 @@
+services:
+ script:
+  image: korah91/rethinkdbscript
+ server-rethinkdb:
+  image: rethinkdb
+  container_name: server-rethinkdb
