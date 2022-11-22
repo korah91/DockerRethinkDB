@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-rethinkdb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: server-rethinkdb
+  template:
+    metadata:
+      labels:
+        component: server-rethinkdb
+    spec:
+      containers:
+      - name: server-rethinkdb
+        image: rethinkdb
+        #ports:
+        #- containerPort: 1080

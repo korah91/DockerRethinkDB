@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-script
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: script
+  template:
+    metadata:
+      labels:
+        component: script
+    spec:
+      containers:
+      - name: script
+        image: korah91/rethinkdbscript
+        #ports:
+        #- containerPort: 1080
