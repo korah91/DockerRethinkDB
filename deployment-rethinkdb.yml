@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deployment-rethinkdb
+  name: server-rethinkdb
 spec:
   replicas: 1
   selector:
@@ -15,5 +15,5 @@ spec:
       containers:
       - name: server-rethinkdb
         image: rethinkdb
-        #ports:
-        #- containerPort: 1080
+        ports:
+        - containerPort: 28015

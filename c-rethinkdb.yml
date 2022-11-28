@@ -5,7 +5,7 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    component: rethinkdb
+    component: server-rethinkdb
   ports:
   - port: 28015
     targetPort: 28015
