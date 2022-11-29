@@ -12,8 +12,16 @@ spec:
       labels:
         component: server-rethinkdb
     spec:
+      volumes:
+      - name: volumen-persistente
+        persistentVolumeClaim:
+          claimName: volumen-reclamacion
       containers:
       - name: server-rethinkdb
         image: rethinkdb
         ports:
         - containerPort: 28015
+        volumeMounts:
+          - name: volumen-persistente
+            mountPath: /data/rethinkdb_data
+            subPath: VOLUMEN_RETHINKDB
