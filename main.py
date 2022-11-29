@@ -5,10 +5,12 @@ r = RethinkDB()
 print("Conectandose a rethinkdb...")
 
 try:
-	r.connect( "server-rethinkdb", 28015).repl()
-except:
-	print("No se ha podido conectar")
-	quit()
+	r.connect( "c-rethinkdb", 28015).repl()
+except Exception as e:
+  print("No se ha podido conectar")
+  print(e)
+  quit()
+
 print("Conexion satisfactoria")
 time.sleep(1)
 

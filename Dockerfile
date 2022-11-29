@@ -1,10 +1,11 @@
 FROM ubuntu:latest
 
-RUN apt update
-RUN apt install python3 -y
-
+RUN apt update 
+# stdout a /dev/null porque -qq no funciona ya que apt llama a dpkg y printea
+RUN apt install python3 -y > /dev/null
+RUN apt install python3-pip -y > /dev/null
 COPY main.py /
 
-RUN python -m pip install rethinkdb
+RUN python3 -m pip install rethinkdb
 
 CMD ["python3", "main.py"]

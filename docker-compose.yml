@@ -1,6 +1,9 @@
 services:
  script:
   image: korah91/rethinkdbscript
+  depends_on:
+   - server-rethinkdb
  server-rethinkdb:
   image: rethinkdb
   container_name: server-rethinkdb
+  

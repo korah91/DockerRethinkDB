@@ -15,5 +15,7 @@ spec:
       containers:
       - name: script
         image: korah91/rethinkdbscript
+        # Siempre descarga la imagen por si acaso
+        imagePullPolicy: Always
         #ports:
         #- containerPort: 1080
