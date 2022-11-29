@@ -12,10 +12,6 @@ spec:
       labels:
         component: server-rethinkdb
     spec:
-      volumes:
-      - name: volumen-persistente
-        persistentVolumeClaim:
-          claimName: volumen-reclamacion
       containers:
       - name: server-rethinkdb
         image: rethinkdb
@@ -24,4 +20,8 @@ spec:
         volumeMounts:
           - name: volumen-persistente
             mountPath: /data/rethinkdb_data
-            
+            subPath: CARPETARETHINKDB
+      volumes:
+      - name: volumen-persistente
+        persistentVolumeClaim:
+          claimName: volumen-reclamacion      
