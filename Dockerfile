@@ -1,9 +1,9 @@
-FROM ubuntu:latest
+FROM alpine:latest
 
-RUN apt update 
+RUN apk update 
 # stdout a /dev/null porque -qq no funciona ya que apt llama a dpkg y printea
-RUN apt install python3 -y > /dev/null
-RUN apt install python3-pip -y > /dev/null
+RUN apk add python3 > /dev/null
+RUN apk add py3-pip > /dev/null
 COPY main.py /
 
 RUN python3 -m pip install rethinkdb
