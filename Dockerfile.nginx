@@ -1,0 +1,9 @@
+FROM nginx:1.21.4-alpine
+
+# Copio el index html donde se va a mostrar
+#COPY index.html /usr/share/nginx/html
+
+# Pongo el autoindex de nginx a ON para que me muestre los ficheros
+RUN sed -i -e '/location.*\/.*{/a autoindex on\;' /etc/nginx/conf.d/default.conf
+# Borro el index de prueba para que me muestre el autoindex
+RUN rm -rf /usr/share/nginx/html

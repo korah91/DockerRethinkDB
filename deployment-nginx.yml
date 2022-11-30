@@ -1,26 +1,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: server-rethinkdb
+  name: nginx
 spec:
   replicas: 1
   selector:
     matchLabels:
-      component: server-rethinkdb
+      component: nginx
   template:
     metadata:
       labels:
-        component: server-rethinkdb
+        component: nginx
     spec:
       containers:
-      - name: server-rethinkdb
-        image: rethinkdb
+      - name: nginx
+        image: korah91/nginx
         ports:
-        - containerPort: 28015
-        - containerPort: 8080
+        - containerPort: 80
         volumeMounts:
           - name: volumen-persistente
-            mountPath: /data/rethinkdb_data
+            # En esta carpeta esta el index.htmll
+            mountPath: /usr/share/nginx/html/rethinkdb
+        # Siempre descarga la imagen por si acaso
+        imagePullPolicy: Always
       volumes:
       - name: volumen-persistente
         persistentVolumeClaim:
