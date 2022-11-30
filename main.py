@@ -23,7 +23,7 @@ try:
   print("Se ha creado la tabla authors en la database test")
   time.sleep(1)
 except Exception as e:
-  print("No se ha podido crear la tabla, posiblemente ya este creada")
+  print("No se ha podido crear la tabla porque ya se ha creado antes")
   seHaCreado = False
   #print(e)
 
@@ -63,15 +63,14 @@ else:
 
 # Se imprimen los documentos
 nElementos = 0
-print(f"-------------------------\nAhora se imprimiran los objetos guardados.\n-------------------------")
+print(f"-------------------------\nAhora se imprimiran los objetos guardados. \n-------------------------")
 for obj in r.table("authors").run():
   nElementos += 1
   time.sleep(0.4)
   print(obj)
 print(f"Hay un total de {nElementos} elementos ")
 
-print("Haciendo dump")
-os.system("rethinkdb dump -f /data/rethinkdb_data/DUMP.tar.gz")
+
 
 
 
