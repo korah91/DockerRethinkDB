@@ -1,18 +1,21 @@
 # Este script inicializa todos los servicios, deployments y volumenes
+# Se asume que minikube esta instalado y en marcha con el driver para ingress
 
-kubectl delete deployment server-rethinkdb
-kubectl delete deployment script
-kubectl delete deployment nginx
-kubectl delete pvc volumen-reclamacion
+echo "Iniciando el cluster"
+
+kubectl delete deployment server-rethinkdb 
+kubectl delete deployment script 
+kubectl delete deployment nginx 
+kubectl delete pvc volumen-reclamacion 
+kubectl delete service c-nginx
+kubectl delete service c-rethinkdb
+kubectl delete ingress my-ingress 
 
 # ---------------- SERVICIOS ---------------- #
-# Servicio para acceder por IPTUNNELMINIKUBE:8080 a la interfaz grafica de rethinkDB
-kubectl apply -f service-rethinkdb.yml
-# Servicio para acceder por IPTUNNELMINIKUBE:80 a NGINX y ver los contenidos del volumen persistente
-kubectl apply -f service-nginx.yml
 # ClusterIP para que script cree las tablas en servidor-rethinkdb
 kubectl apply -f c-rethinkdb.yml
-
+kubectl apply -f c-nginx.yml
+kubectl apply -f ingress.yml
 # ---------------- VOLUMEN ---------------- #
 # Creacion de reclamacion de volumen
 kubectl apply -f volumen-reclamacion.yml
@@ -25,6 +28,7 @@ kubectl apply -f deployment-script.yml
 # Creacion de deployment de servidor nginx que muestra el contenido del volumen.
 kubectl apply -f deployment-nginx.yml
 
-# ---------------- TUNNEL ---------------- #
-#
-minikube tunnel
+
+# Se consigue la ip de minikube para acceder
+ip=`minikube ip`
+echo "Se accede a nginx en ${ip}"

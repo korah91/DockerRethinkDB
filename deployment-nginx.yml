@@ -19,7 +19,7 @@ spec:
         - containerPort: 80
         volumeMounts:
           - name: volumen-persistente
-            # En esta carpeta esta el index.htmll
+            # Monto el volumen en una carpeta que va a mostrar el index.html
             mountPath: /usr/share/nginx/html/rethinkdb
         # Siempre descarga la imagen por si acaso
         imagePullPolicy: Always
