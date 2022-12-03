@@ -1,6 +1,6 @@
 services:
  script:
-  image: korah91/rethinkdbscript
+  image: korah91/rethinkdbscript-docker
   depends_on:
    - server-rethinkdb
  server-rethinkdb:

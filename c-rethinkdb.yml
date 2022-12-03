@@ -7,9 +7,12 @@ spec:
   selector:
     component: server-rethinkdb
   ports:
+  # Para tratar la base de datos con la libreria de python es necesario mandar las peticiones al puerto 28015
   - name: driver
     port: 28015
     targetPort: 28015
+  # Para acceder a la interfaz hay que hacerlo en el puerto 8080.
+  # Redirige el trafico del ingress en el puerto 80 al 8080
   - name: interfaz
     port: 80
     targetPort: 8080
