@@ -1,6 +1,7 @@
 # DockerRethinkDB
-This project demonstrates the deployment of a RethinkDB database and an NGINX server using Docker-Compose and Kubernetes. It showcases the setup and orchestration of containers for a scalable and reliable real-time database solution. This project was completed during my third year of engineering studies (two years ago). 🎓
-I enjoyed working on this project as it involved learning about Kubernetes and Docker and connecting systems, which was very hard at first, but it was very rewarding. 
+This small project demonstrates the deployment of a RethinkDB database and an NGINX server using Docker-Compose and Kubernetes. It showcases the setup and orchestration of containers for a scalable and reliable real-time database solution. This project was completed during my third year of engineering studies (two years ago). 🎓
+
+I enjoyed working on this project as it involved learning about Kubernetes and Docker and connecting systems, which was very hard at first, but it was very rewarding.
 
 ## Table of Contents
 
